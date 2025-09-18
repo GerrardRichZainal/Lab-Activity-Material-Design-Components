@@ -15,17 +15,21 @@ class LoginPage extends StatelessWidget {
               const Icon(Icons.shopping_bag, size: 80, color: Colors.green),
               const SizedBox(height: 20),
               TextField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Username',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
               TextField(
                 obscureText: true,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Password',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
