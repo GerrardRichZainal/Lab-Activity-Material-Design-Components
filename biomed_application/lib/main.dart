@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
-        '/home': (context) => const HomePage(),
+        // HomePage sekarang butuh username, jadi kita hapus const dan tambahkan dummy username dulu
+        '/home': (context) => HomePage(username: 'User'),
       },
     );
   }
