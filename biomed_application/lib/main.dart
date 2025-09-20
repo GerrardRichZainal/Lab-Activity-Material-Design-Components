@@ -15,12 +15,47 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BioMed',
+
+      // Light Theme (default)
       theme: appTheme,
+
+      // Dark Theme
+      darkTheme: ThemeData.dark().copyWith(
+        primaryColor: Colors.blueGrey,
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black87,
+          foregroundColor: Colors.white,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white70),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueGrey,
+            foregroundColor: Colors.white,
+          ),
+        ),
+      ),
+
+      // Mode otomatis ikut sistem (bisa Light atau Dark)
+      themeMode: ThemeMode.system,
+
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
-        // HomePage sekarang butuh username, jadi kita hapus const dan tambahkan dummy username dulu
-        '/home': (context) => HomePage(username: 'User'),
+      },
+
+      // Gunakan onGenerateRoute untuk handle passing data (username)
+      onGenerateRoute: (settings) {
+        if (settings.name == '/home') {
+          final username = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (context) => HomePage(username: username),
+          );
+        }
+        return null;
       },
     );
   }

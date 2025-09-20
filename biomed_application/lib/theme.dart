@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 final ThemeData appTheme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-  useMaterial3: true,
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: Colors.lightBlue, // warna utama
+    brightness: Brightness.light,
+  ),
+  useMaterial3: true, // aktifkan Material 3
   textTheme: const TextTheme(
-    displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-    titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-    bodyMedium: TextStyle(fontSize: 16),
+    headlineSmall: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+    titleMedium: TextStyle(color: Colors.black87),
   ),
 );
